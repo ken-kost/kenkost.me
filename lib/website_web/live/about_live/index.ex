@@ -5,7 +5,7 @@ defmodule WebsiteWeb.AboutLive.Index do
   def mount(_params, _session, socket) do
     socket =
       socket
-      |> assign(:page_title, "About Me - Florian Arens")
+      |> assign(:page_title, "About Me - Kenneth Kostrešević")
       |> assign(:og_image_text, "About")
 
     {:ok, socket}

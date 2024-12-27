@@ -12,7 +12,7 @@ defimpl SEO.OpenGraph.Build, for: Website.Blog.Article do
       detail:
         SEO.OpenGraph.Article.build(
           published_time: Date.to_iso8601(article.date),
-          author: "Florian Arens",
+          author: "Kenneth Kostrešević",
           section: "Software Development",
           tag: article.tags
         ),

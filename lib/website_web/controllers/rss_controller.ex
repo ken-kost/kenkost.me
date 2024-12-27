@@ -8,8 +8,8 @@ defmodule WebsiteWeb.RssController do
   alias Atomex.{Feed, Entry}
   alias Website.Blog
 
-  @author "Florian Arens"
-  @email "info@farens.me"
+  @author "Kenneth Kostrešević"
+  @email "kenneth.kostresevic@gmail.com"
 
   def index(conn, _params) do
     articles = Blog.all_articles()

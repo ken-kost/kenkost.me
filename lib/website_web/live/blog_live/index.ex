@@ -9,7 +9,7 @@ defmodule WebsiteWeb.BlogLive.Index do
 
     socket =
       socket
-      |> assign(:page_title, "Blog - Florian Arens")
+      |> assign(:page_title, "Blog - Kenneth Kostrešević")
       |> assign(:all_tags, all_tags)
       |> assign(:og_image_text, "Blog")
 

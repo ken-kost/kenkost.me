@@ -273,23 +273,23 @@ defmodule WebsiteWeb.CoreComponents do
   def contact_links(assigns) do
     ~H"""
     <div class={@class}>
-      <.link href="https://github.com/flo0807" target="_blank">
+      <.link href="https://github.com/ken-kost" target="_blank">
         <span class="sr-only">GitHub</span>
         <.github_icon class={@icon_class} />
       </.link>
-      <.link href="https://linkedin.com/in/florian-arens" target="_blank">
+      <.link href="https://linkedin.com/in/ken-kost" target="_blank">
         <span class="sr-only">LinkedIn</span>
         <.linkedin_icon class={@icon_class} />
       </.link>
-      <.link href="https://bsky.app/profile/farens.me" target="_blank">
+      <.link href="https://bsky.app/profile/kenkost.bsky.social" target="_blank">
         <span class="sr-only">Blueksy</span>
         <.bluesky_icon class={@icon_class} />
       </.link>
-      <.link href="https://x.com/flo_arens" target="_blank">
+      <.link href="https://x.com/k3n_k0st" target="_blank">
         <span class="sr-only">X</span>
         <.x_icon class={@icon_class} />
       </.link>
-      <.link href="mailto:info@farens.me">
+      <.link href="mailto:kenneth.kostresevic@gmail.com">
         <span class="sr-only">Mail</span>
         <.mail_icon class={@icon_class} />
       </.link>

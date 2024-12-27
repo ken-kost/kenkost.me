@@ -6,7 +6,7 @@
   tags: ["Elixir", "Hello World", "LiveView", "Phoenix"]
 }
 ---
-I talk about why Elixir and Phoenix were chosen over a static site generator to build this website, along with explanations and code examples of how some interesting features work in detail.
+Hello World! Example of article by Flo0807
 
 ## Introduction
 
@@ -194,4 +194,4 @@ export default ThemeSwitch;
 
 ## Conclusion 
 
-I recommend that every developer creates a little playground project to try out new features and experiment with new technologies. It can be a blog, a portfolio, or a small web application, and it does not have to be public. It's a great way to learn new things and keep up with the latest technologies. This website and blog is my playground and I am happy with the result. I look forward to writing more articles and adding new features.
+Conclusion
