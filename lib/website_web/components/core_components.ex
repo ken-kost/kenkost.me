@@ -456,8 +456,8 @@ defmodule WebsiteWeb.CoreComponents do
     <script
       :if={Application.get_env(:website, :env) == :prod}
       defer
-      data-domain="farens.me"
-      src="https://plausible.farens.me/js/script.js"
+      data-domain="kenkost.me"
+      src="https://plausible.ken-kost.me/js/script.js"
     >
     </script>
     """
@@ -474,6 +474,7 @@ defmodule WebsiteWeb.CoreComponents do
 
   defp secondary_navigation_links do
     [
+      %{label: "Blog fork of ken-kost", to: "https://github.com/ken-kost/kenkost.me"},
       %{label: "Legal Notice", to: ~p"/legal-notice"},
       %{label: "Privacy Policy", to: ~p"/privacy-policy"}
     ]

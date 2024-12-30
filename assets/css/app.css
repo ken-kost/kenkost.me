@@ -15,3 +15,30 @@
     @apply sticky top-[100dvh];
   }
 }
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradient-animation 6s ease infinite;
+}
+
+.from-elixir-a {
+  background-image: linear-gradient(to right, #3B1455, #533569);
+}
+
+.to-elixir-b {
+  background-image: linear-gradient(to right, #a738f1, #c17df1);
+}

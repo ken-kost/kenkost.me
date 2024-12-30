@@ -6,23 +6,7 @@ defmodule WebsiteWeb.SEO do
 
   use SEO,
     site: &__MODULE__.site_config/1,
-    open_graph: &__MODULE__.open_graph_config/1,
-    twitter: &__MODULE__.twitter_config/1
-
-  @doc """
-  Configures the Twitter card.
-  """
-  def twitter_config(conn) do
-    SEO.Twitter.build(
-      site: "@flo_arens",
-      creator: "@flo_arens",
-      title: conn.assigns.page_title,
-      card: :summary_large_image,
-      image: "https://og-image.farens.me/image?text=#{conn.assigns[:og_image_text]}",
-      description:
-        "Personal website and blog of Kenneth Kostrešević, a software developer and computer science student."
-    )
-  end
+    open_graph: &__MODULE__.open_graph_config/1
 
   @doc """
   Configures the Open Graph.
@@ -30,10 +14,8 @@ defmodule WebsiteWeb.SEO do
   def open_graph_config(conn) do
     SEO.OpenGraph.build(
       title: conn.assigns.page_title,
-      description:
-        "Personal website and blog of Kenneth Kostrešević, a software developer and computer science student.",
+      description: "Personal website and blog of Kenneth Kostrešević, an elixir developer.",
       locale: "en_US",
-      image: "https://og-image.farens.me/image?text=#{conn.assigns[:og_image_text]}",
       url: conn.assigns.current_url
     )
   end
@@ -44,8 +26,7 @@ defmodule WebsiteWeb.SEO do
   def site_config(conn) do
     SEO.Site.build(
       canonical_url: conn.assigns.current_url,
-      description:
-        "Personal website and blog of Kenneth Kostrešević, a software developer and computer science student."
+      description: "Personal website and blog of Kenneth Kostrešević, an elixir developer."
     )
   end
 end

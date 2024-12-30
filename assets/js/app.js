@@ -50,3 +50,31 @@ liveSocket.connect()
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
+
+const text = " Kenneth!";
+const typedTextElement = document.getElementById("typed-text");
+
+function typeText() {
+  for (let index = 0; index < text.length; index++) {
+    setTimeout(() => {
+      typedTextElement.textContent += text.charAt(index);
+    }, (index + 1) * 200);
+  }
+}
+
+const textElixir = " Elixir";
+const typedTextElixirElement = document.getElementById("typed-text-elixir");
+
+function typeTextElixir() {
+  for (let index = 0; index < text.length; index++) {
+    setTimeout(() => {
+      typedTextElixirElement.textContent += textElixir.charAt(index);
+    }, (index + 1) * 200 + 9 * 200);
+  }
+}
+
+// window.addEventListener('load', () => {
+//   typeText();
+//   typeTextElixir();
+//   sessionStorage.setItem('hasVisited', 'true');
+// });

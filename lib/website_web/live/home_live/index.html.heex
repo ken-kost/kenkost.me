@@ -1,18 +1,22 @@
-<h1 class="text-pretty text-3xl font-semibold md:w-2/3 md:text-5xl">
+<h1 class="text-pretty text-center text-3xl font-semibold md:text-5xl">
   Hey, I'm
-  <span class="from-primary to-secondary bg-gradient-to-r bg-clip-text text-transparent">
+  <span
+    id="typed-text"
+    class="gradient-animate from-primary to-secondary bg-gradient-to-r bg-clip-text text-transparent"
+  >
     Kenneth!
   </span>
-  <br />Software developer working primarily in elixir.
+  <br />
+  <span
+    id="typed-text-elixir"
+    class="gradient-animate from-elixir-a to-elixir-b bg-gradient-to-r bg-clip-text text-transparent"
+  >
+    Elixir
+  </span>
+  developer.
 </h1>
 
-<p class="text-pretty mt-4 leading-relaxed md:mt-8 md:w-2/3">
-  Hi! I forked this from
-  <.link navigate="https://github.com/Flo0807/farens.me"> Flo0807/farens.me </.link>
-  to use as my personal blog. Go check him out.
-</p>
-
-<div class="mt-4 md:mt-8">
+<div class="mt-4 flex items-center justify-center md:mt-8">
   <.contact_links
     class="flex flex-wrap gap-y-2 gap-x-2 md:gap-x-4"
     icon_class="size-10 w-auto fill-current text-content border border-base-content/25 rounded-xl p-2 hover:bg-base-content/10"

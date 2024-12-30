@@ -5,12 +5,12 @@
 <h3 align="center">My website and blog built with Phoenix and Elixir.</h3>
 
 <div align="center">
-  <a href="https://farens.me/"><strong>Go to website →</strong></a>
+  <a href="https://kenkost.me/"><strong>Go to website →</strong></a>
   <br />
   <br />
   <a href="https://x.com/flo_arens">x.com</a>
   •
-  <a href="mailto:info@farens.me">E-mail</a>
+  <a href="mailto:info@kenkost.me">E-mail</a>
   •
   <a href="https://linkedin.com/in/florian-arens">LinkedIn</a>
 </div>
