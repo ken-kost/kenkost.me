@@ -10,7 +10,7 @@ kill_signal = 'SIGTERM'
 [build]
 
 [env]
-  PHX_HOST = 'kenkost.fly.dev'
+  PHX_HOST = 'kenkost.me'
   PORT = '8080'
 
 [http_service]
