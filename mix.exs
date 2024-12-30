@@ -41,7 +41,7 @@ defmodule Website.MixProject do
       {:bandit, ">= 0.0.0"},
       {:mdex, "~> 0.3.0"},
       {:yaml_elixir, "~> 2.11.0"},
-      {:tailwind_formatter, "~> 0.4.0", only: [:dev, :test], runtime: false},
+      {:tailwind_formatter, "~> 0.4.1", only: [:dev, :test], runtime: false},
       {:nimble_publisher, "~> 1.1.0"},
       {:phoenix_seo, "~> 0.1.9"},
       {:atomex, "0.5.1"},
