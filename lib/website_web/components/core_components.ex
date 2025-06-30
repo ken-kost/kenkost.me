@@ -474,7 +474,7 @@ defmodule WebsiteWeb.CoreComponents do
 
   defp secondary_navigation_links do
     [
-      %{label: "Blog fork of ken-kost", to: "https://github.com/ken-kost/kenkost.me"},
+      %{label: "Blog fork of Flo0807", to: "https://github.com/Flo0807/farens.me"},
       %{label: "Legal Notice", to: ~p"/legal-notice"},
       %{label: "Privacy Policy", to: ~p"/privacy-policy"}
     ]
