@@ -23,7 +23,7 @@ First, let's initialize a project using [Ash HQ](https://ash-hq.org/#get-started
 
 I named the project `SimpleTranslator`. I don't need to install Elixir and I added Ash AI (which comes with LangChain) and Oban. I removed Admin UI and Live Debugger because it's not relevant.
 
-![alt text](ash-hq.png)
+![alt text](/images/ash-hq.png)
 
 The commands are given:
 ```
@@ -80,24 +80,22 @@ Let's start the server `iex -S mix phx.server` and go to `localhost:4000/registe
 
 Go to `localhost:4000/dev/mailbox` and sign in using the link. This will trigger the creation of a user record.
 
-In our shell running `Repo.all User` gives:
+In our shell running `Repo.one User` gives:
 
 ```elixir
 iex(2)> Repo.all User
 [debug] QUERY OK source="users" db=0.7ms idle=1477.7ms
 SELECT u0."id", u0."email", u0."about_me" FROM "users" AS u0 []
 ↳ :elixir.eval_external_handler/3, at: src/elixir.erl:355
-[
- %SimpleTranslator.Accounts.User{
-    id: "a20e272a-f9d0-435e-897b-41a17ffbee60",
-    email: #Ash.CiString<"kenneth.kostresevic@gmail.com">,
-    about_me: nil,
-    __meta__: #Ecto.Schema.Metadata<:loaded, "users">
- }
-]
+%SimpleTranslator.Accounts.User{
+   id: "a20e272a-f9d0-435e-897b-41a17ffbee60",
+   email: #Ash.CiString<"kenneth.kostresevic@gmail.com">,
+   about_me: nil,
+   __meta__: #Ecto.Schema.Metadata<:loaded, "users">
+}
 ```
 
-Great! One more thing: in `actions` section to `defaults` let's add `update: :*`. We will use this later.
+One more thing: in `actions` section to `defaults` let's add `update: :*`. We will use this later.
 
 ## Configure AshTrans
 
@@ -178,14 +176,14 @@ Here's the whole action:
 
         prompt =           
           """
- Here's a jason map: #{inspect(user_fields)}.
- Translate values and for these locales: #{inspect(locales)}.
- Return only a jason map with locales for keys and translated jason map as values, nothing else.
- Do not wrap the response in a json code block, response needs to start with { and end with }.
- """
+          Here's a jason map: #{inspect(user_fields)}.
+          Translate values and for these locales: #{inspect(locales)}.
+          Return only a jason map with locales for keys and translated jason map as values, nothing else.
+          Do not wrap the response in a json code block, response needs to start with { and end with }.
+          """
 
         input = LangChain.ChatModels.ChatOpenAI.new!(%{model: "gpt-4o-mini"}) 
- {:ok, [message]} = LangChain.ChatModels.ChatOpenAI.call(input, prompt)  
+        {:ok, [message]} = LangChain.ChatModels.ChatOpenAI.call(input, prompt)  
         params = %{translations: Jason.decode!(message.content, keys: :atoms)} 
         Ash.update(Ash.Changeset.for_update(user, :update, params, opts))
       end
@@ -207,7 +205,7 @@ First, we expand `extensions` by adding `AshOban`. Then we can define our trigge
         action :translate
         worker_read_action :read
         scheduler_cron false
-        worker_module_name AshTransAiTest.Accounts.User.AshOban.Worker.TranslateTrigger
+        worker_module_name __MODULE__.AshOban.Worker.TranslateTrigger
       end
     end
   end
@@ -244,6 +242,7 @@ That should do it! Let's try to run it.
 ## Run
 
 `iex -S mix`:
+
  - Get the user:
 ```elixir
 iex(1)> user = Repo.one User
@@ -290,7 +289,9 @@ UPDATE "users" AS u0 SET "translations" = $1::jsonb WHERE (u0."id"::uuid = $2::u
 iex(39)> 
 ```
 
- - Action returns `nil` for translations but we can see something happens post action. And fetching the user again:
+ Action returns `nil` for translations but we can see something happens post action. 
+
+ - Get the user again:
 
  ```elixir
 iex(39)> user = Repo.one User
@@ -320,7 +321,9 @@ SELECT u0."translations", u0."id", u0."email", u0."about_me" FROM "users" AS u0 
 
 I do love programming in Elixir. This is the first tutorial/article I made. I'm not convinced of its usefulness but I liked the idea of being able to translate database data automatically and discreetly and I pursued it. Packaging that into a tutorial felt right.
 
-I'm sure the prompt could be improved and I haven't tried, but I think this could also work with `AshAi` prompt run directly, but since that's more of a black box I preferred this approach.
+I'm sure the prompt could be improved and I haven't tried, but I think this could also work with `AshAi` prompt run directly, but since that's more of a black box I preferred this approach. Also the translate action could be improved, handling the case when the API call fails.
 
 Some additional ideas regarding this would be to integrate it with `Cldr` locales.
-Also, I'm thinking, with `MDEx` and `AshAdmin` it could be something more interesting perhaps. But for now, this proof of concept will do. Hope you found something useful in this! Here's the [link to the repo](https://github.com/ken-kost/simple_translator).
+Also, I'm thinking, with `MDEx` and `AshAdmin` it could be something more interesting perhaps. But for now, this proof of concept will do. Hope you found something useful in this! 
+
+Here's the [link to the repo](https://github.com/ken-kost/simple_translator).
